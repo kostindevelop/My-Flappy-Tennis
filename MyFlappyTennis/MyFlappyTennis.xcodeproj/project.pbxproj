@@ -12,6 +12,11 @@
 		B5C145E9209CE27000AF7357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5C145E7209CE27000AF7357 /* Main.storyboard */; };
 		B5C145EB209CE27300AF7357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5C145EA209CE27300AF7357 /* Assets.xcassets */; };
 		B5C145EE209CE27300AF7357 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5C145EC209CE27300AF7357 /* LaunchScreen.storyboard */; };
+		B5C145F7209CE2D100AF7357 /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C145F6209CE2D100AF7357 /* Bird.swift */; };
+		B5C145F9209CE2E100AF7357 /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C145F8209CE2E100AF7357 /* Rocket.swift */; };
+		B5C145FB209CE2FD00AF7357 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C145FA209CE2FD00AF7357 /* Sprite.swift */; };
+		B5C145FD209CE30700AF7357 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C145FC209CE30700AF7357 /* Block.swift */; };
+		B5C145FF209CE31500AF7357 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C145FE209CE31500AF7357 /* Coin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		B5C145EA209CE27300AF7357 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5C145ED209CE27300AF7357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5C145EF209CE27300AF7357 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5C145F6209CE2D100AF7357 /* Bird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bird.swift; sourceTree = "<group>"; };
+		B5C145F8209CE2E100AF7357 /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
+		B5C145FA209CE2FD00AF7357 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
+		B5C145FC209CE30700AF7357 /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
+		B5C145FE209CE31500AF7357 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +64,7 @@
 		B5C145E2209CE27000AF7357 /* MyFlappyTennis */ = {
 			isa = PBXGroup;
 			children = (
+				B5C145F5209CE2BB00AF7357 /* Model */,
 				B5C145E3209CE27000AF7357 /* AppDelegate.swift */,
 				B5C145E5209CE27000AF7357 /* ViewController.swift */,
 				B5C145E7209CE27000AF7357 /* Main.storyboard */,
@@ -62,6 +73,18 @@
 				B5C145EF209CE27300AF7357 /* Info.plist */,
 			);
 			path = MyFlappyTennis;
+			sourceTree = "<group>";
+		};
+		B5C145F5209CE2BB00AF7357 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5C145F6209CE2D100AF7357 /* Bird.swift */,
+				B5C145F8209CE2E100AF7357 /* Rocket.swift */,
+				B5C145FA209CE2FD00AF7357 /* Sprite.swift */,
+				B5C145FC209CE30700AF7357 /* Block.swift */,
+				B5C145FE209CE31500AF7357 /* Coin.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +158,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C145FB209CE2FD00AF7357 /* Sprite.swift in Sources */,
 				B5C145E6209CE27000AF7357 /* ViewController.swift in Sources */,
+				B5C145F7209CE2D100AF7357 /* Bird.swift in Sources */,
+				B5C145FD209CE30700AF7357 /* Block.swift in Sources */,
 				B5C145E4209CE27000AF7357 /* AppDelegate.swift in Sources */,
+				B5C145F9209CE2E100AF7357 /* Rocket.swift in Sources */,
+				B5C145FF209CE31500AF7357 /* Coin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
