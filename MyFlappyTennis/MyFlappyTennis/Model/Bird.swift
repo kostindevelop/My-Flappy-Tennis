@@ -6,4 +6,30 @@
 //  Copyright © 2018 Konstantin Igorevich. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class Bird : UIImageView {
+    var rightSideX: CGFloat {
+        return self.frame.origin.x + self.frame.size.width
+    }
+    var leftSideX: CGFloat {
+        return self.frame.origin.x
+    }
+    static func addBird(to view:UIView) -> Bird {
+        let rect = CGRect(x: 100, y: 100, width: 50, height: 50)
+        let bird = Bird(frame: rect)
+        var images: [UIImage] = []
+        for i in 1...3 {
+            let image = UIImage(named: "\(i)")!
+            images.append(image)
+        }
+        bird.animationImages = images
+        bird.contentMode = .scaleAspectFit
+        bird.animationDuration = 0.3
+        bird.animationRepeatCount = -1
+        bird.startAnimating()
+        view.addSubview(bird)
+        return bird
+    }
+    
+}

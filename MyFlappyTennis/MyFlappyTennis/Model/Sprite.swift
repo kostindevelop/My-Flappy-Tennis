@@ -6,4 +6,8 @@
 //  Copyright © 2018 Konstantin Igorevich. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class Sprite: UIView {
+    
+}
