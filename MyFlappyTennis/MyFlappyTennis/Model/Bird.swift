@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum BirdDirection {
+    case rigth
+    case left
+}
+
 class Bird : UIImageView {
     var rightSideX: CGFloat {
         return self.frame.origin.x + self.frame.size.width

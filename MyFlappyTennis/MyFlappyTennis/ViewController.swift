@@ -8,19 +8,13 @@
 
 import UIKit
 
-enum Direction {
-    case rigth
-    case left
-    case up
-    case down
-}
-
 class ViewController: UIViewController {
     
     var bird: Bird!
     var rocket: Rocket!
     var timer: Timer!
-    var direction: Direction = .rigth
+    var birdDirection: BirdDirection = .rigth
+    var blockDirection: BlockDirection = .down
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -36,30 +30,30 @@ class ViewController: UIViewController {
         })
     }
     func moveBird() {
-        if direction == .rigth && bird.rightSideX < self.view.frame.size.width  {
+        if birdDirection == .rigth && bird.rightSideX < self.view.frame.size.width  {
             bird.transform = CGAffineTransform(scaleX: 1, y: 1)
             bird.frame.origin.x += 1
             if bird.rightSideX >= self.view.frame.size.width {
-                direction = .left
+                birdDirection = .left
             }
         } else {
             bird.transform = CGAffineTransform(scaleX: -1, y: 1)
             bird.frame.origin.x -= 1
             if bird.leftSideX < 0 {
-                direction = .rigth
+                birdDirection = .rigth
             }
         }
     }
     func moveRocket() {
-        if direction == .down && rocket.downSide < self.view.frame.size.height  {
+        if blockDirection == .down && rocket.downSide < self.view.frame.size.height  {
             rocket.frame.origin.y += 1
             if rocket.downSide >= self.view.frame.size.height {
-                direction = .up
+                blockDirection = .up
             }
         } else {
             bird.frame.origin.y -= 1
             if rocket.upSide < 0 {
-                direction = .down
+                blockDirection = .down
             }
         }
     }

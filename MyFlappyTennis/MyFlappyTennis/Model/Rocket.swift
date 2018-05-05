@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum BlockDirection {
+    case up
+    case down
+}
+
 class Rocket: UIView {
     var downSide: CGFloat {
         return self.frame.origin.y + self.frame.size.height
