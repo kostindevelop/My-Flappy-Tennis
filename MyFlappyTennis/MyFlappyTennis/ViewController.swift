@@ -18,17 +18,27 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupScene()
         runTimer()
     }
     
-    func runTimer() {
-        bird = Bird.addBird(to: view)
+    func setupScene() {
+        bird = Bird.createBird()
         rocket = Rocket.addRocket(to: view)
+
+    }
+    
+    func runTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { _ in
-            self.moveBird()
-            self.moveRocket()
+            self.timerTick()
         })
     }
+    
+    func timerTick () {
+        moveBird()
+        moveRocket()
+    }
+    
     func moveBird() {
         if birdDirection == .rigth && bird.rightSideX < self.view.frame.size.width  {
             bird.transform = CGAffineTransform(scaleX: 1, y: 1)
@@ -44,6 +54,7 @@ class ViewController: UIViewController {
             }
         }
     }
+    
     func moveRocket() {
         if blockDirection == .down && rocket.downSide < self.view.frame.size.height  {
             rocket.frame.origin.y += 1
