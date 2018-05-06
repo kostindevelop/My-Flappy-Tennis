@@ -20,7 +20,7 @@ class Bird : UIImageView {
     var leftSideX: CGFloat {
         return self.frame.origin.x
     }
-    static func createBird() -> Bird {
+    static func addBird(to view:UIView) -> Bird {
         let rect = CGRect(x: 100, y: 100, width: 50, height: 50)
         let bird = Bird(frame: rect)
         var images: [UIImage] = []
@@ -33,11 +33,7 @@ class Bird : UIImageView {
         bird.animationDuration = 0.3
         bird.animationRepeatCount = -1
         bird.startAnimating()
+        view.addSubview(bird)
         return bird
     }
-    
-    static func add(bird: Bird, to view: UIView) {
-        view.addSubview(bird)
-    }
-    
 }

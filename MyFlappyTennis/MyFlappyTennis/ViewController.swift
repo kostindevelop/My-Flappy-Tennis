@@ -11,10 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     
     var bird: Bird!
-    var rocket: Rocket!
+    var leftRocket: Rocket!
+    var rightRocket: Rocket!
+    var coin: Coin!
+
     var timer: Timer!
     var birdDirection: BirdDirection = .rigth
-    var blockDirection: BlockDirection = .down
+    var lBlockDirection: lBlockDirection = .down
+    var rBlockDirection: rBlockDirection = .down
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -23,9 +27,9 @@ class ViewController: UIViewController {
     }
     
     func setupScene() {
-        bird = Bird.createBird()
-        rocket = Rocket.addRocket(to: view)
-
+        bird = Bird.addBird(to: view)
+        leftRocket = Rocket.addLeftRocket(to: view)
+        rightRocket = Rocket.addRightRocket(to: view)
     }
     
     func runTimer() {
@@ -36,37 +40,56 @@ class ViewController: UIViewController {
     
     func timerTick () {
         moveBird()
-        moveRocket()
+        moveLeftRocket()
+        moveRightRocket()
     }
     
     func moveBird() {
         if birdDirection == .rigth && bird.rightSideX < self.view.frame.size.width  {
             bird.transform = CGAffineTransform(scaleX: 1, y: 1)
-            bird.frame.origin.x += 1
-            if bird.rightSideX >= self.view.frame.size.width {
+            bird.frame.origin.x += 2
+            if bird.rightSideX >= self.view.frame.size.width || self.bird.frame.origin.y == self.rightRocket.frame.origin.y {
                 birdDirection = .left
+                updateElement()
             }
         } else {
             bird.transform = CGAffineTransform(scaleX: -1, y: 1)
-            bird.frame.origin.x -= 1
-            if bird.leftSideX < 0 {
+            bird.frame.origin.x -= 2
+            if bird.leftSideX < 0 || self.bird.frame.origin.y == self.leftRocket.frame.origin.y {
                 birdDirection = .rigth
             }
         }
     }
     
-    func moveRocket() {
-        if blockDirection == .down && rocket.downSide < self.view.frame.size.height  {
-            rocket.frame.origin.y += 1
-            if rocket.downSide >= self.view.frame.size.height {
-                blockDirection = .up
+    func moveLeftRocket() {
+        if lBlockDirection == .down && leftRocket.downSide < self.view.frame.size.height  {
+            leftRocket.frame.origin.y += 1
+            if leftRocket.downSide >= self.view.frame.size.height {
+                lBlockDirection = .up
             }
         } else {
-            bird.frame.origin.y -= 1
-            if rocket.upSide < 0 {
-                blockDirection = .down
+            leftRocket.frame.origin.y -= 1
+            if leftRocket.upSide < 20 {
+                lBlockDirection = .down
             }
         }
+    }
+    
+    func moveRightRocket() {
+        if rBlockDirection == .down && rightRocket.downSide < self.view.frame.size.height  {
+            rightRocket.frame.origin.y += 1
+            if rightRocket.downSide >= self.view.frame.size.height {
+                rBlockDirection = .up
+            }
+        } else {
+            rightRocket.frame.origin.y -= 1
+            if rightRocket.upSide < 20 {
+                rBlockDirection = .down
+            }
+        }
+    }
+    func updateElement() {
+        // code for update element to view
     }
 }
 
