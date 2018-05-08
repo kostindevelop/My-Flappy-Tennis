@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     var leftRocket: Rocket!
     var rightRocket: Rocket!
     var coin: Coin!
-
+    
     var timer: Timer!
     var birdDirection: BirdDirection = .rigth
     var lBlockDirection: lBlockDirection = .down
@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         setupScene()
         runTimer()
     }
+    
     
     func setupScene() {
         bird = Bird.addBird(to: view)
@@ -45,17 +46,17 @@ class ViewController: UIViewController {
     }
     
     func moveBird() {
+        bird.frame.origin.y += 0.5
         if birdDirection == .rigth && bird.rightSideX < self.view.frame.size.width  {
             bird.transform = CGAffineTransform(scaleX: 1, y: 1)
             bird.frame.origin.x += 2
-            if bird.rightSideX >= self.view.frame.size.width || self.bird.frame.origin.y == self.rightRocket.frame.origin.y {
+            if bird.rightSideX >= self.view.frame.size.width || bird.frame.intersects(rightRocket.frame)  {
                 birdDirection = .left
-                updateElement()
             }
         } else {
             bird.transform = CGAffineTransform(scaleX: -1, y: 1)
             bird.frame.origin.x -= 2
-            if bird.leftSideX < 0 || self.bird.frame.origin.y == self.leftRocket.frame.origin.y {
+            if bird.leftSideX < 0 || bird.frame.intersects(leftRocket.frame){
                 birdDirection = .rigth
             }
         }
@@ -88,8 +89,11 @@ class ViewController: UIViewController {
             }
         }
     }
-    func updateElement() {
-        // code for update element to view
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+            bird.frame.origin.y -= 2
+        
     }
+    
 }
-
