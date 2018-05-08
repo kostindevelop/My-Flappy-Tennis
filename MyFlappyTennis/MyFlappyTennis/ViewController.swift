@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var leftRocket: Rocket!
     var rightRocket: Rocket!
     var coin: Coin!
+    var isTouch: Bool = false
     
     var timer: Timer!
     var birdDirection: BirdDirection = .rigth
@@ -46,7 +47,14 @@ class ViewController: UIViewController {
     }
     
     func moveBird() {
-        bird.frame.origin.y += 0.5
+        if !isTouch || bird.frame.origin.y < 0 {
+            bird.frame.origin.y += 2
+        } else {
+            bird.frame.origin.y -= 4
+            if bird.frame.origin.y > self.view.frame.size.height {
+                print("Game Over")
+            }
+        }
         if birdDirection == .rigth && bird.rightSideX < self.view.frame.size.width  {
             bird.transform = CGAffineTransform(scaleX: 1, y: 1)
             bird.frame.origin.x += 2
@@ -91,9 +99,11 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-            bird.frame.origin.y -= 2
-        
+        isTouch = true
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        isTouch = false
     }
     
 }
