@@ -10,10 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var point: Int = 0
+    
     var bird: Bird!
     var leftRocket: Rocket!
     var rightRocket: Rocket!
     var coin: Coin!
+    var block: Block!
+    var arratBlocks: [Block] = []
     var isTouch: Bool = false
     
     var timer: Timer!
@@ -27,11 +31,12 @@ class ViewController: UIViewController {
         runTimer()
     }
     
-    
     func setupScene() {
         bird = Bird.addBird(to: view)
         leftRocket = Rocket.addLeftRocket(to: view)
         rightRocket = Rocket.addRightRocket(to: view)
+        setupCoin()
+        setupBlock()
     }
     
     func runTimer() {
@@ -40,20 +45,24 @@ class ViewController: UIViewController {
         })
     }
     
-    func timerTick () {
+    func timerTick() {
         moveBird()
         moveLeftRocket()
         moveRightRocket()
+        if bird.frame.intersects(coin.frame) || bird.frame.intersects(leftRocket.frame) || bird.frame.intersects(rightRocket.frame) {
+            self.point += 1
+            print("<#T##items: Any...##Any#>")
+        }
     }
     
     func moveBird() {
-        if !isTouch || bird.frame.origin.y < 0 {
+        if !isTouch || bird.frame.origin.y < 10 {
             bird.frame.origin.y += 2
         } else {
             bird.frame.origin.y -= 4
-            if bird.frame.origin.y > self.view.frame.size.height {
-                print("Game Over")
-            }
+        }
+        if bird.frame.origin.y + bird.frame.size.height > self.view.frame.size.height || bird.frame.intersects(block.frame)  {
+            self.presentGameOverScreen()
         }
         if birdDirection == .rigth && bird.rightSideX < self.view.frame.size.width  {
             bird.transform = CGAffineTransform(scaleX: 1, y: 1)
@@ -104,6 +113,30 @@ class ViewController: UIViewController {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         isTouch = false
+    }
+    
+    func setupCoin() {
+        var num = 0
+        while num != 3 {
+            coin = Coin.addCoin(to: view)
+            num += 1
+        }
+    }
+    
+    func setupBlock() {
+        var num = 0
+        while num != 3 {
+            block = Block.addBlock(to: view)
+            arrayBlock.append(block)
+            num += 1
+        }
+    }
+    
+    func presentGameOverScreen() {
+        let gameOver = self.storyboard?.instantiateViewController(withIdentifier: "gameOverController") as! UIViewController
+        self.present(gameOver, animated: true)
+        self.timer.invalidate()
+        print(self.point)
     }
     
 }

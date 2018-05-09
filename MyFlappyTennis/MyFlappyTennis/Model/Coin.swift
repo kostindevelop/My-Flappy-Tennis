@@ -8,22 +8,18 @@
 
 import UIKit
 
-class Coin: UIView {
+class Coin: UIImageView {
     
-    static func addCoin(to view:UIView) -> (Coin, Coin, Coin) {
-        let randPoint = CGFloat(arc4random_uniform(UInt32(view.frame.height)))
-        let rect = CGRect(x: randPoint, y: randPoint, width: 20, height: 20)
+    static func addCoin(to view:UIView) -> Coin {
+        let randPointH = CGFloat(arc4random_uniform(UInt32(view.frame.height)))
+        let randPointW = CGFloat(arc4random_uniform(UInt32(view.frame.width)))
+        let rect = CGRect(x: randPointW, y: randPointH, width: 20, height: 20)
         let coin = Coin(frame: rect)
-        coin.backgroundColor = .green
+        let image = UIImage(named: "coin")
+        coin.image = image
+        coin.contentMode = .scaleAspectFit
         view.addSubview(coin)
-        let rect2 = CGRect(x: randPoint, y: randPoint, width: 20, height: 20)
-        let coin2 = Coin(frame: rect2)
-        coin2.backgroundColor = .green
-        view.addSubview(coin2)
-        let rect3 = CGRect(x: randPoint, y: randPoint, width: 20, height: 20)
-        let coin3 = Coin(frame: rect3)
-        coin3.backgroundColor = .green
-        view.addSubview(coin3)
-        return (coin, coin2, coin3)
+        return coin
     }
+    
 }
