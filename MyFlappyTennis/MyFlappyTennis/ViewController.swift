@@ -16,8 +16,8 @@ class ViewController: UIViewController {
     var leftRocket: Rocket!
     var rightRocket: Rocket!
     var coin: Coin!
-    var block: Block!
-    var arrayBlocks: [Block] = []
+    var bomb: Bomb!
+    var arrayBombs: [Bomb] = []
     var isTouch: Bool = false
     
     var timer: Timer!
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         leftRocket = Rocket.addLeftRocket(to: view)
         rightRocket = Rocket.addRightRocket(to: view)
         setupCoin()
-        setupBlock()
+        setupBomb()
     }
     
     func runTimer() {
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         } else {
             bird.frame.origin.y -= 4
         }
-        if bird.frame.origin.y + bird.frame.size.height > self.view.frame.size.height || bird.frame.intersects(block.frame)  {
+        if bird.frame.origin.y + bird.frame.size.height > self.view.frame.size.height || bird.frame.intersects(bomb.frame)  {
             self.presentGameOverScreen()
         }
         if birdDirection == .rigth && bird.rightSideX < self.view.frame.size.width  {
@@ -122,11 +122,11 @@ class ViewController: UIViewController {
         }
     }
     
-    func setupBlock() {
+    func setupBomb() {
         var num = 0
         while num != 3 {
-            block = Block.addBlock(to: view)
-            arrayBlocks.append(block)
+            bomb = Bomb.addBomb(to: view)
+            arrayBombs.append(bomb)
             num += 1
         }
     }

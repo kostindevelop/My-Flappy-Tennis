@@ -14,7 +14,7 @@
 		B5C145F7209CE2D100AF7357 /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C145F6209CE2D100AF7357 /* Bird.swift */; };
 		B5C145F9209CE2E100AF7357 /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C145F8209CE2E100AF7357 /* Rocket.swift */; };
 		B5C145FB209CE2FD00AF7357 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C145FA209CE2FD00AF7357 /* Sprite.swift */; };
-		B5C145FD209CE30700AF7357 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C145FC209CE30700AF7357 /* Block.swift */; };
+		B5C145FD209CE30700AF7357 /* Bomb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C145FC209CE30700AF7357 /* Bomb.swift */; };
 		B5C145FF209CE31500AF7357 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C145FE209CE31500AF7357 /* Coin.swift */; };
 		B5C14601209DF2FF00AF7357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5C14600209DF2FF00AF7357 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -29,7 +29,7 @@
 		B5C145F6209CE2D100AF7357 /* Bird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bird.swift; sourceTree = "<group>"; };
 		B5C145F8209CE2E100AF7357 /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
 		B5C145FA209CE2FD00AF7357 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
-		B5C145FC209CE30700AF7357 /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
+		B5C145FC209CE30700AF7357 /* Bomb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bomb.swift; sourceTree = "<group>"; };
 		B5C145FE209CE31500AF7357 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		B5C14600209DF2FF00AF7357 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,7 +81,7 @@
 				B5C145F6209CE2D100AF7357 /* Bird.swift */,
 				B5C145F8209CE2E100AF7357 /* Rocket.swift */,
 				B5C145FA209CE2FD00AF7357 /* Sprite.swift */,
-				B5C145FC209CE30700AF7357 /* Block.swift */,
+				B5C145FC209CE30700AF7357 /* Bomb.swift */,
 				B5C145FE209CE31500AF7357 /* Coin.swift */,
 			);
 			path = Model;
@@ -162,7 +162,7 @@
 				B5C145FB209CE2FD00AF7357 /* Sprite.swift in Sources */,
 				B5C145E6209CE27000AF7357 /* ViewController.swift in Sources */,
 				B5C145F7209CE2D100AF7357 /* Bird.swift in Sources */,
-				B5C145FD209CE30700AF7357 /* Block.swift in Sources */,
+				B5C145FD209CE30700AF7357 /* Bomb.swift in Sources */,
 				B5C145E4209CE27000AF7357 /* AppDelegate.swift in Sources */,
 				B5C145F9209CE2E100AF7357 /* Rocket.swift in Sources */,
 				B5C145FF209CE31500AF7357 /* Coin.swift in Sources */,
