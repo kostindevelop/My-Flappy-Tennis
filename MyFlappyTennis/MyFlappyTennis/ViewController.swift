@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     var rightRocket: Rocket!
     var coin: Coin!
     var block: Block!
-    var arratBlocks: [Block] = []
+    var arrayBlocks: [Block] = []
     var isTouch: Bool = false
     
     var timer: Timer!
@@ -51,7 +51,6 @@ class ViewController: UIViewController {
         moveRightRocket()
         if bird.frame.intersects(coin.frame) || bird.frame.intersects(leftRocket.frame) || bird.frame.intersects(rightRocket.frame) {
             self.point += 1
-            print("<#T##items: Any...##Any#>")
         }
     }
     
@@ -127,7 +126,7 @@ class ViewController: UIViewController {
         var num = 0
         while num != 3 {
             block = Block.addBlock(to: view)
-            arrayBlock.append(block)
+            arrayBlocks.append(block)
             num += 1
         }
     }
